@@ -10,11 +10,34 @@ public class Aufgabe5 {
 
     private static void drawPatternRecursively(CodeDraw myDrawObj, int x, int y, int s, boolean c) {
         // TODO: Implementieren Sie hier Ihre Lösung für die Methode
+        if (s<4) return;
+        drawPatternRecursively(myDrawObj,x-s/2, y-s/2,s/2,!c);
+        drawPatternRecursively(myDrawObj,x+s/2, y-s/2,s/2,!c);
+        drawPatternRecursively(myDrawObj,x-s/2, y+s/2,s/2,!c);
+        drawPatternRecursively(myDrawObj,x+s/2, y+s/2,s/2,!c);
+
+        if(c) myDrawObj.setColor(Color.gray);
+        else
+            myDrawObj.setColor(Color.cyan);
+        myDrawObj.fillSquare(x-s/2, y-s/2, s);
     }
 
     // Iterative Version => ChatGPT 3.5 generiert (nur Aufrufe für Zeichenmethoden und Farben setzen wurden angepasst)
     public static void drawPatternIteratively(CodeDraw myDrawObj, int width) {
-        int s = width;
+        boolean cyan = false;
+        for (int i = 2; i <= width/2; i*=2) {
+            for (int j = i/2; j < width; j+=i*2) {
+                for (int k = i/2; k < width; k+=i*2) {
+                    myDrawObj.fillSquare(j,k,i);
+                }
+                
+            }
+            if (cyan)
+                myDrawObj.setColor(Color.cyan);
+            else myDrawObj.setColor(Color.gray);
+            cyan=!cyan;
+        }
+        /*int s = width;
         boolean c = true;
 
         while (s >= 4) {
@@ -33,6 +56,9 @@ public class Aufgabe5 {
             s /= 2;
             c = !c;
         }
+
+         */
+
     }
 
 

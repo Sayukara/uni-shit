@@ -18,50 +18,40 @@ public class Aufgabe1 {
 
 
     //TODO zu Punkt c): Implementieren Sie hier die Methoden Ihrer Lösung
-    public static void shape(int zeilen, int spalten) {
-        int plus = 0;
-        int reverse = 0;
-        for (int zeile = 0; zeile < zeilen; zeile++) {
-            if (zeile == 0 || zeile == zeilen - 1) {
-                for (int i = 0; i < spalten; i++) {
-                    if (i == 0 || i == spalten - 1) System.out.print("#");
-                    else System.out.print("+");
-                }
-                System.out.println();
-            }
-            else{
-                System.out.print("*");
-                for (int i = 1; i < spalten - 1; i++) {
-                    if (i == ((spalten - 1) / 2) - plus) {
-                        System.out.print("/");
-                        for (int j = 0; j < plus * 2; j++) {
-                            System.out.print("+");
+    /*public static String formShape(int width, int height, char character) {
+        String shape = "";
+        int whitespace = 0;
+        int fill = 0;
+        for (int i = 1; i <= height; i++) {
+            for (int j = 1; j <= width; j++) {
+                if (i <= height/2) {
+                    fill = 2*i;
+                    whitespace = width - fill;
+                    for (int k = 1; k <= width; k++) {
+                        if (k<=whitespace/2) {
+                            System.out.print(" ");
+                        }
+                        if(k<=width-whitespace/2) {
 
                         }
-                        System.out.print("\\");
-
-                        i += 2 + plus * 2;
-                        plus++;
-
                     }
-                    if (i <= spalten - 2)
-                        System.out.print(" ");
-                }
-                System.out.println("*");
-
-                if (zeile%(spalten/2)==0) {
-                    plus -= 2;
                 }
             }
-
+            
         }
+        return shape;
     }
+
+    public static String formBorder() {
+        return null;
+    }
+*/
 
     public static void main(String args[]) {
         //********************************************************
         //TODO zu Punkt d): Implementieren Sie hier Ihre Lösung für die Angabe
         System.out.println("Ihre Ausgabe:");
-        shape(17, 10);
+
         //********************************************************
 
         System.out.println();
