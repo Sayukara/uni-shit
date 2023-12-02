@@ -74,4 +74,21 @@ public class Aufgabe1 {
     //Der wird dann ausgegeben. Nach der Ausführung von der Methode, wird der helpArray (der nur in der Methode existiert)
     //Speicherbereich nicht mehr  gebraucht bzw. ich nehme an vom GarbageCollector aufgenommen und das originelle Array
     //filledArray greift auf seinen letzten Speicherbereich zurück der noch vorhanden ist. Daher die letzte Ausgabe.
+
+    //Zusatzfragen!
+    /*
+    Antworten:
+    1. Java ist so aufgebaut, dass Arrays einen ganzzähligen Index besitzen müssen, in anderen Worten integer.
+    Der andere Grund beruht auf Effizienz und Erleichterung für den CPU, weil es einfacher ist, integer durchzulaufen
+    als Zahlen mit vielen Nachkommazahlen.
+    2. Man kann einen neuen Array erstellen mit der bevorzugten Länge und die originellen Werte in den neuen Array
+    einspielen.
+    3. Wenn es nur ums kopieren geht, kann ich einen neuen Array erstellen und es mit original.clone()
+    kopieren oder so ähnlich.
+    4. Eigentlich nicht. '==' vergleicht eigentlich nur, ob die zwei zu vergleichenden Variablen auf die gleiche Referenz
+    zeigen, dies kann entweder true oder false sein. Das heißt aber, dass nur verglichen wird, ob die Referenz stimmt,
+    aber wenn man NUR die Werte der zwei Variablen vergleichen will, dann sollte man eher so etwas wie .equals()
+    verwenden. Das ist besonders wichtig bei Referenztypen wie String oder Array oder anderen Objekttypen.
+     */
+//Ende Zusatzfragen
 }
