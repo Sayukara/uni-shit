@@ -3,16 +3,46 @@
 */
 
 import java.util.Arrays;
+import java.util.Random;
 
 public class Aufgabe3 {
 
     private static int[] genRandomArray(int length, int maxNumber) {
         //TODO: Implementieren Sie hier Ihre Lösung für die Angabe
-        return null; //Zeile kann geändert oder entfernt werden.
+        Random rand = new Random();
+        int[] arr = new int[length];
+        int random = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (i % 3 == 0)
+                random = rand.nextInt(0, maxNumber+1); //Neue random Zahl alle 3 Zahlen;
+            arr[i] = random + i%3;
+        }
+        return arr;
     }
 
     private static void replaceValues(int[] workArray, int idx) {
         //TODO: Implementieren Sie hier Ihre Lösung für die Angabe
+        int mittelwert = 0;
+        int sum = 0;
+        int min, max = 0;
+        for (int x:workArray) {
+            sum+=x;
+            if (max <= x)
+                max = x;
+        }
+        min = max;
+        for (int x:workArray) {
+            if (min >= x)
+                min = x;
+        }
+        mittelwert = sum/workArray.length;
+        for (int i = 0; i <= idx; i++) {
+            if (workArray[i] >= mittelwert)
+                workArray[i] = max;
+            if (workArray[i] < mittelwert)
+                workArray[i] = min;
+        }
+
     }
 
     public static void main(String[] args) {
