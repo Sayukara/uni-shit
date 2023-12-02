@@ -8,7 +8,8 @@ public class Aufgabe4 {
 
     private static char[] compareTemperatures(int[] lastYear, int[] currentYear, int index) {
         // TODO: Implementieren Sie hier Ihre Lösung für die rekursive Methode
-        return null; //Zeile kann geändert oder entfernt werden.
+        
+        return null;
     }
 
     private static void shiftLowestHighestValue(int[] workArray, int index) {
