@@ -8,8 +8,18 @@ public class Aufgabe4 {
 
     private static char[] compareTemperatures(int[] lastYear, int[] currentYear, int index) {
         // TODO: Implementieren Sie hier Ihre Lösung für die rekursive Methode
-        
-        return null;
+        char[] compareArr = new char[lastYear.length];
+        if (index == lastYear.length) {
+            return compareArr;
+        }
+        if (currentYear[index] > lastYear[index]) {
+            compareArr[index] = '>';
+        } else if (currentYear[index] < lastYear[index]) {
+            compareArr[index] = '<';
+        } else if (currentYear[index] == lastYear[index]) {
+                compareArr[index] = '=';
+        }
+        return compareTemperatures(lastYear, currentYear,index+1);
     }
 
     private static void shiftLowestHighestValue(int[] workArray, int index) {

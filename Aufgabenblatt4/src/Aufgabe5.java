@@ -8,7 +8,30 @@ public class Aufgabe5 {
 
     private static int[][] generateFilledArray(int n) {
         // TODO: Implementieren Sie hier Ihre Lösung für die Methode
-        return null; //Zeile kann geändert oder entfernt werden.
+        int[][] arr = new int[n][n];
+        int maxNum = (n * n + 1) / 2;
+        int num = 1;
+        int numGoingDown = 1;
+        int halfway = maxNum;
+        if (maxNum % 2 == 1) halfway--;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (num < halfway) {
+                    arr[i][j] = num++;
+                } else if (num == halfway) {
+                    arr[i][j] = num;
+                    numGoingDown = num;
+                    num++;
+                } else if (num == maxNum) {
+                    arr[i][j] = num++;
+                } else {
+                    arr[i][j] = numGoingDown--;
+                }
+            }
+        }
+        return arr;
+
     }
 
     private static int[][] generateExtendedArray(int[] inputArray) {

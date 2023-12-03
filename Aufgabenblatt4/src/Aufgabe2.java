@@ -32,7 +32,9 @@ public class Aufgabe2 {
             System.out.println("?no");
             return;
         }
-        System.arraycopy(lettersArray, 0, modifiedLettersArr, 0, lettersArray.length);
+        for (int i = 0; i < lettersArray.length; i++) {
+            modifiedLettersArr[i] = lettersArray[i];
+        }
         char z = 'Z';
         for (int i = 0; i < modifiedLettersArr.length; i++) {
             char c = modifiedLettersArr[i];
