@@ -36,12 +36,47 @@ public class Aufgabe5 {
 
     private static int[][] generateExtendedArray(int[] inputArray) {
         // TODO: Implementieren Sie hier Ihre Lösung für die Methode
-        return null; //Zeile kann geändert oder entfernt werden.
+        /* how it would be with two seperate arrays
+        int[][] firstArr = new int[inputArray[0]][inputArray[1]];
+        int[][] secondArr = new int[inputArray[2]][inputArray[3]];
+        */
+        int indexHeight;
+        int [][] arr = new int[inputArray[0]+inputArray[2]][];
+        for (indexHeight = 0; indexHeight < inputArray[0]; indexHeight++) {
+            arr[indexHeight] = new int[inputArray[1]];
+            for (int j = 0; j < inputArray[1]; j++) {
+                arr[indexHeight][j] = j+1;
+            }
+
+        }
+        for (; indexHeight < arr.length; indexHeight++) {
+            arr[indexHeight] = new int[inputArray[3]];
+            for (int j = 0; j < inputArray[3]; j++) {
+                arr[indexHeight][j] = j+1;
+            }
+
+        }
+        return arr;
     }
 
     private static int[][] generateReformattedArray(int[][] inputArray) {
         // TODO: Implementieren Sie hier Ihre Lösung für die Methode
-        return null; //Zeile kann geändert oder entfernt werden.
+        int[][] outputArray = new int[inputArray.length][];
+        for (int i = 0; i < inputArray.length; i++) {
+            outputArray[i] = new int[inputArray[i].length];
+            int countZeros = 0;
+            for (int j = 0; j < inputArray[i].length; j++) {
+                if (inputArray[i][j]==0)
+                    countZeros++;
+            }
+            for (int j = 0; j < outputArray[i].length; j++) {
+                if(j < countZeros)
+                    outputArray[i][j] = 0;
+                else
+                    outputArray[i][j] = 1;
+            }
+        }
+        return outputArray;
     }
 
     //Vorgegebene Methode - BITTE NICHT VERÄNDERN!

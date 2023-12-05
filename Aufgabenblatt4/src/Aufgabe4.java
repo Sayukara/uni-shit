@@ -11,7 +11,9 @@ public class Aufgabe4 {
         char[] compareArr = new char[lastYear.length];
         if (index == lastYear.length) {
             return compareArr;
-        }
+        } else
+            compareArr = compareTemperatures(lastYear, currentYear,index+1);
+
         if (currentYear[index] > lastYear[index]) {
             compareArr[index] = '>';
         } else if (currentYear[index] < lastYear[index]) {
@@ -19,11 +21,12 @@ public class Aufgabe4 {
         } else if (currentYear[index] == lastYear[index]) {
                 compareArr[index] = '=';
         }
-        return compareTemperatures(lastYear, currentYear,index+1);
+        return compareArr;
     }
 
     private static void shiftLowestHighestValue(int[] workArray, int index) {
         // TODO: Implementieren Sie hier Ihre Lösung für die rekursive Methode
+
     }
 
     public static void main(String[] args) {
