@@ -26,6 +26,20 @@ public class Aufgabe4 {
 
     private static void shiftLowestHighestValue(int[] workArray, int index) {
         // TODO: Implementieren Sie hier Ihre Lösung für die rekursive Methode
+        int temp;
+        if(workArray[index] < workArray[0]) {
+            temp = workArray[0];
+            workArray[0] = workArray[index];
+            workArray[index] = temp;
+        }
+        if(workArray[index] > workArray[workArray.length-1]) {
+            temp = workArray[workArray.length-1];
+            workArray[workArray.length-1] = workArray[index];
+            workArray[index] = temp;
+        }
+        //Soll nur rekursieren solange index im Indexbereich liegt
+        if(index < workArray.length-1)
+            shiftLowestHighestValue(workArray, index+1);
 
     }
 

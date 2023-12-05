@@ -9,12 +9,13 @@ public class Aufgabe3 {
 
     private static int[] genRandomArray(int length, int maxNumber) {
         //TODO: Implementieren Sie hier Ihre Lösung für die Angabe
-        Random rand = new Random();
-        int[] arr = new int[length];
         int random = 0;
+        int[] arr = new int[length];
         for (int i = 0; i < arr.length; i++) {
-            if (i % 3 == 0)
-                random = rand.nextInt(0, maxNumber+1); //Neue random Zahl alle 3 Zahlen;
+            if (i % 3 == 0) {
+                random = (int) Math.round(Math.random()*maxNumber);
+            }
+
             arr[i] = random + i%3;
         }
         return arr;
