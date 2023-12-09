@@ -7,11 +7,36 @@ import java.util.Arrays;
 public class Aufgabe1 {
 
     private static void shiftLines(int[][] workArray) {
-        // TODO: Implementieren Sie hier Ihre Lösung für die Methode
+        int length = workArray[0].length;
+        int index = 0;
+        int[] temp;
+        for (int i = 0; i < workArray.length; i++) {
+            if (workArray[i].length < length) {
+                length = workArray[i].length;
+                index = i;
+            }
+        }
+        temp = workArray[0];
+        workArray[0] = workArray[index];
+        workArray[index] = temp;
     }
 
     private static void reformatArray(int[][] inputArray) {
-        // TODO: Implementieren Sie hier Ihre Lösung für die Methode
+        int count;
+        for (int i = 0; i < inputArray.length; i++) {
+            count = 0; //setze counter nach jeder formatierung neu
+
+            for (int j = 0; j < inputArray[i].length; j++) {
+                if (inputArray[i][j] == 0)
+                    count++; //zähle wie viele 0er es gibt
+            }
+            int[] temp = new int[inputArray[i].length-count+1]; //erstelle array mit länge minus 0er stellen +1 für count
+            temp[0] = count;
+            for (int j = 1; j < temp.length; j++) {
+                temp[j] = 1;
+            }
+            inputArray[i] = temp; //übernehme formatierung
+        }
     }
 
     //Vorgegebene Methode - BITTE NICHT VERÄNDERN!
