@@ -7,12 +7,64 @@ import java.util.Arrays;
 public class Aufgabe2 {
 
     private static char[][] makeOver(char[][] inputArray) {
-        // TODO: Implementieren Sie hier Ihre Lösung für die Methode
-        return null; //Zeile kann geändert oder entfernt werden.
+        char star = '*';
+        char[][] cuteMessage = new char[inputArray.length+2][];
+        cuteMessage[0] = new char[inputArray[0].length+2];
+
+        //erste Zeile
+        for (int i = 0; i < cuteMessage[0].length; i++) {
+            cuteMessage[0][i] = star;
+        }
+
+        //sandwich
+        for (int i = 1; i < cuteMessage.length-1; i++) {
+            cuteMessage[i] = new char[inputArray[i-1].length+2];
+            cuteMessage[i][0] = star;
+            for (int j = 0; j < inputArray[i-1].length; j++) {
+                cuteMessage[i][j+1] = inputArray[i-1][j];
+            }
+            cuteMessage[i][cuteMessage[i].length-1] = star;
+
+        }
+        //letzte Zeile
+        cuteMessage[cuteMessage.length-1] = new char[inputArray[inputArray.length-1].length+2];
+        for (int i = 0; i < cuteMessage[cuteMessage.length-1].length; i++) {
+            cuteMessage[cuteMessage.length-1][i] = star;
+        }
+
+        return cuteMessage;
     }
 
     private static void change(int[][] workArray) {
-        // TODO: Implementieren Sie hier Ihre Lösung für die Methode
+        for (int i = 0; i < workArray.length; i++) {
+            int absolute = 0;
+            if (workArray[i].length==0) {
+                if(i==workArray.length-1) { //wenn die letzte Zeile leer ist dann kannst gleich aufhören
+                    break;
+                }
+                else {
+                    i++; //sonst zur nächsten Zeile
+                }
+            }
+            if (workArray[i][0] < 0) {
+                absolute = Math.abs(workArray[i][0]); //absoluten Wert nehmen
+            }
+            if ((absolute >= workArray[i].length))
+                workArray[i] = new int[]{}; //wenn weniger Elemente existent ab absolut dann leeren
+            else { //sonst ab absolute neu füllen
+                int n = 0;
+                int[] temp = new int[workArray[i].length];
+                int length = workArray[i].length;
+                for (int j = 0; j < workArray[i].length; j++) {
+                    temp[j] = workArray[i][j];
+                }
+                workArray[i] = new int[length-absolute];
+                for (int j = absolute; j < length; j++) {
+                    workArray[i][n++] = temp[j];
+                }
+            }
+        }
+
     }
 
     //Vorgegebene Methode - BITTE NICHT VERÄNDERN!
